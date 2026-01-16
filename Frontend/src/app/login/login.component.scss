@@ -301,14 +301,14 @@
     padding-top:0px;
 }
 .default_questions{
-    margin:0px;
+    margin:15px 0px 0px;
     padding:0px;
     list-style:none;
     display: flex;
     flex-direction:column;
     align-items:flex-start;
     width:100%;
-    padding-left:50px;
+    padding-left:20px;
     li{
         color: #000;
         font-size: 14px;
@@ -333,16 +333,17 @@
 .msg_sec{
     border-radius: 6px;
      background: #F2F2F2;
-         height: 85px;
-    margin: 10px 0px 5px;
+    height:100px;
+    margin: 0px 0px 5px;
      width: 100%;
-     textarea {
+     padding-top:8px;
+    textarea {
     resize: none;
     width: 100%;
     height: 40px;
     border: none;
     background: transparent;
-    padding:5px 10px;
+    padding:10px 10px 5px;
     &:focus-visible {
     outline:none;
    }
@@ -352,7 +353,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-        padding: 0px 5px;
+        padding: 0px 10px;
         .dropdown-menu{
             min-width: 250px;
             padding: 10px;
@@ -366,10 +367,14 @@
         }
     .btn-link{
         border:none;
+        padding:0px;
+        img{
+            height:30px;
+        }
     }
 }
 .pilot_para{
-    font-size:14px;
+    font-size:11px;
     width:100%;
     margin: 3px 0px 0px;
     text-align:center;
@@ -482,6 +487,51 @@ img.ladki_bahin_img {
     opacity: 1;
     transform: translateY(0);
   }
+}
+.chat_action_btn{
+    font-size: 14px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 0px;
+    width: 175px;
+    justify-content: center;
+        img{
+        margin-right:8px;
+    }
+}
+.attach_btn{  
+    background: #0990FF;
+
+}
+.green_outline_btn
+{
+    border: 1px solid #B4EC51;
+    background: #F9FFEF;
+    color:#000;
+    width:100px;
+      &:hover,&:active{
+        border: 1px solid #B4EC51;
+        background: #F9FFEF;
+        color:#000;
+  }
+}
+.red_outline_btn
+{
+    border: 1px solid #FF4040;
+    background: #FFF5F5;
+      color:#000;
+       width:100px;
+    &:hover,&:active{
+        border: 1px solid #FF4040;
+        background: #FFF5F5;
+        color:#000;
+  }
+}
+.btn_sec{
+       width: 100%;
+    padding-left: 15px;
+    display: flex;
 }
 .line {
   opacity: 0;

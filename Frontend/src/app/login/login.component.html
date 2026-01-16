@@ -74,21 +74,13 @@
                             <li class="response" [ngClass]="{'user_query': msg.isUser, 'bot_response': !msg.isUser}">
                                 <ng-container *ngIf="!msg.isUser">
                                     <img class="bot_icon" src="/assets/images/chatbot/chat_bot.svg">
+                                    <div class="chat_outer">
                                     <div class="chat">
                                         <a class="btn-link speakar_btn" (click)="playTextToSpeech(msg.text)"> <img
                                                 src="/assets/images/chatbot/speakar.svg"></a>
                                         <span [innerHTML]="formatMessage(msg.text)"></span>
                                     </div>
-                                </ng-container>
-                                <ng-container *ngIf="msg.isUser">
-                                    <div class="chat">
-                                        <span [innerHTML]="formatMessage(msg.text)"></span>
-                                    </div>
-                                    <img class="user_icon" src="/assets/images/chatbot/user.svg">
-                                </ng-container>
-                            </li>
-                        </ng-container>
-                        <ul class="default_questions" *ngIf="messages.length <= 1">
+                                                            <ul class="default_questions" *ngIf="messages.length <= 1">
                             <li (click)="handleQuickReply('पात्रता तपासायची आहे का ?')"><img
                                     src="/assets/images/chatbot/search.svg">पात्रता तपासायची आहे का ? </li>
                             <li (click)="handleQuickReply('नवीन अर्ज करायचा आहे का ?')"><img
@@ -98,6 +90,44 @@
                             <li (click)="handleQuickReply('तक्रार नोंदवायची आहे का ?')"><img
                                     src="/assets/images/chatbot/complaint.svg">तक्रार नोंदवायची आहे का ?</li>
                         </ul>
+                                    </div>
+
+                                </ng-container>
+                                <ng-container *ngIf="msg.isUser">
+                                    <div class="chat">
+                                        <span [innerHTML]="formatMessage(msg.text)"></span>
+                                    </div>
+                                    <img class="user_icon" src="/assets/images/chatbot/user.svg">
+                                </ng-container>
+                            </li>
+                        </ng-container>
+                        <!--Attach BTN ANd Yes no button -->
+                                                <!-- <li class="response bot_response">
+                            <img class="bot_icon" src="/assets/images/chatbot/chat_bot.svg">
+                            <div class="chat_outer">
+                            <div class="chat">
+                                <a class="btn-link speakar_btn"> <img src="/assets/images/chatbot/speakar.svg"></a>
+                                      कृपया तुमचा 12 अंकी आधार क्रमांक येथे टाका किंवा अपलोड करा. 
+                            </div>
+                             <div class="btn_sec mt-2">
+                                 <button type="button" class="btn  blue_btn attach_btn chat_action_btn"  (click)="openUploader('General')"><img src="/assets/images/chatbot/attach_icon.svg">Attach (जोडा)</button>
+                             </div>
+                             </div>
+                        </li>
+                        <li class="response bot_response">
+                            <img class="bot_icon" src="/assets/images/chatbot/chat_bot.svg">
+                            <div class="chat_outer">
+                            <div class="chat">
+                                <a class="btn-link speakar_btn"> <img src="/assets/images/chatbot/speakar.svg"></a>
+                                     आधारवरील माहिती बरोबर आहे का?
+                            </div>
+                             <div class="btn_sec mt-2">
+                                 <button type="button" class="btn chat_action_btn  green_outline_btn me-3"><img src="/assets/images/chatbot/yes.svg">हो</button>
+                                 <button type="button" class="btn chat_action_btn red_outline_btn" ><img src="/assets/images/chatbot/no.svg">नाही</button>
+                             </div>
+                             </div>
+                        </li> -->
+                      <!--Attach BTN ANd Yes no button -->
                         <!-- <li class="response user_query">
                             <div class="chat">
                                 योजनेची माहिती द्या ?
@@ -146,7 +176,7 @@
 
                             </div>
                             <div class="action_right">
-                                <button type="button" class="btn-link"><img src="/assets/images/chatbot/voice.svg"></button>
+                                <button type="button" class="btn-link me-2"><img src="/assets/images/chatbot/voice.svg"></button>
                                 <button type="button" class="btn-link" (click)="sendUserMessage()"><img src="/assets/images/chatbot/send.svg"></button>
                             </div>
                         </div>
