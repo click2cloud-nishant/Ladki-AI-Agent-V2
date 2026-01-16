@@ -1,0 +1,160 @@
+<main class="login_sec">
+    <section class="login_container">
+        <div class="left_sec">
+            <div class="circular_log">
+                <img class="me-2" src="/assets/images/login/Seal_of_Maharashtra.svg" alt="">
+                <img src="/assets/images/login/ashok-stambhwcd.svg" alt="">
+                <img  class="ms-2"class="gov_img_mobile" src="/assets/images/login/gov.png" alt="Goverment">
+            </div>
+            <img class="ladki_bahin_img" src="/assets/images/login/login_left_img.svg" alt="Ladki Bahin Yojana">
+        </div>
+        <div class="right_sec">
+            <div class="login_form">
+                <h1>Log In</h1>
+                <form>
+                    <div class="form-group">
+                        <label for="mobileNo">Mobile No. <span class="mandatory">*</span></label>
+                        <input type="tel" pattern="[0-9]{10}" maxlength="10" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="mobileNo">Password <span class="mandatory">*</span></label>
+                        <div class="icon_control_container">
+                            <input [type]="showPassword ? 'text' : 'password'" class="form-control">
+                            <img [src]="showPassword ? '/assets/images/login/eye_icon_hide_dark.svg' : '/assets/images/login/eye_icon_show_dark.svg'"
+                                alt="" (click)="togglePassword()">
+                        </div>
+                    </div>
+                    <div class="form-group otp_sec">
+                        <img src="/assets/images/login/otp_dummy.svg">
+                        <input type="text" class="form-control">
+                        <button type="button" class="btn blue_btn refresh_btn"><img
+                                src="/assets/images/login/refresh_icon.svg"></button>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn yellow_btn w-100">Log In</button>
+                    </div>
+                </form>
+                <div class="account_para">
+                    <p>Doesn't have account <a> Create Account ? </a> </p>
+                    <p>Forgot Password ? <a>Click Here</a> Account Locked ? <a>Click Here</a> </p>
+                </div>
+            </div>
+        </div>
+        <div class="powered_by_sec">
+            <img src="/assets/images/login/Click2Cloud_logo.svg" alt="">
+            <p>Pilot By <a target="_blank" href="https://www.click2cloud.com/"> Click2Cloud</a> | All Copyrights©
+                Reserved</p>
+        </div>
+    </section>
+    <img class="gov_img" src="/assets/images/login/gov.png" alt="Goverment">
+    <img class="chatbot_icon" data-bs-toggle="modal" data-bs-target="#chatbotModal"
+        src="/assets/images/login/Ladki-Bahin-Yojana-Chatbot.svg" alt="Ladki-Bahin-Yojana-Chatbot">
+    <!-- Chat Bot Modal Start -->
+    <div class="modal chatBot_modal fade" id="chatbotModal" tabindex="-1" aria-labelledby="chatbotModal"
+        aria-hidden="true" data-bs-backdrop="false" data-bs-keyboard="false">
+        <div class="modal-dialog chatBot_modal_dialog" [class.maximize] = "expandChatWindow">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal_header_left">
+                        <img src="/assets/images/chatbot/chat_bot.svg">
+                        <h5 class="modal-title" id="exampleModalLabel">Ladki AI Agent </h5>
+                    </div>
+                    <div class="modal_header_right">
+                        <img src="/assets/images/chatbot/whatsapp.svg">
+                        <img (click) = "openLiveChat()" [src]="liveChat ? '/assets/images/chatbot/livechat_blue.svg'  :  '/assets/images/chatbot/livechat.svg'">
+                        <img class="expand_action" (click) = "toggleChatWindowSize()" src="/assets/images/chatbot/expand.svg">
+                        <img (click)="resetSession()" src="/assets/images/chatbot/reload.svg">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><img
+                                src="/assets/images/chatbot/close.svg"></button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <ul *ngIf="!liveChat" class="communication_sec">
+                        <ng-container *ngFor="let msg of messages">
+                            <li class="response" [ngClass]="{'user_query': msg.isUser, 'bot_response': !msg.isUser}">
+                                <ng-container *ngIf="!msg.isUser">
+                                    <img class="bot_icon" src="/assets/images/chatbot/chat_bot.svg">
+                                    <div class="chat">
+                                        <a class="btn-link speakar_btn" (click)="playTextToSpeech(msg.text)"> <img
+                                                src="/assets/images/chatbot/speakar.svg"></a>
+                                        <span [innerHTML]="formatMessage(msg.text)"></span>
+                                    </div>
+                                </ng-container>
+                                <ng-container *ngIf="msg.isUser">
+                                    <div class="chat">
+                                        <span [innerHTML]="formatMessage(msg.text)"></span>
+                                    </div>
+                                    <img class="user_icon" src="/assets/images/chatbot/user.svg">
+                                </ng-container>
+                            </li>
+                        </ng-container>
+                        <ul class="default_questions" *ngIf="messages.length <= 1">
+                            <li (click)="handleQuickReply('पात्रता तपासायची आहे का ?')"><img
+                                    src="/assets/images/chatbot/search.svg">पात्रता तपासायची आहे का ? </li>
+                            <li (click)="handleQuickReply('नवीन अर्ज करायचा आहे का ?')"><img
+                                    src="/assets/images/chatbot/new_application.svg">नवीन अर्ज करायचा आहे का ?</li>
+                            <li (click)="handleQuickReply('अर्जाची स्थिती पाहायची आहे का ?')"><img
+                                    src="/assets/images/chatbot/status.svg">अर्जाची स्थिती पाहायची आहे का ?</li>
+                            <li (click)="handleQuickReply('तक्रार नोंदवायची आहे का ?')"><img
+                                    src="/assets/images/chatbot/complaint.svg">तक्रार नोंदवायची आहे का ?</li>
+                        </ul>
+                        <!-- <li class="response user_query">
+                            <div class="chat">
+                                योजनेची माहिती द्या ?
+                            </div>
+                            <img class="user_icon" src="/assets/images/chatbot/user.svg">
+                        </li> -->
+                        <!-- <li class="response bot_response">
+                            <img class="bot_icon" src="/assets/images/chatbot/chat_bot.svg">
+                            <div class="chat">
+                                <a class="btn-link speakar_btn"> <img src="/assets/images/chatbot/speakar.svg"></a>
+                              माझ्या लक्षात आले नाही, माफ करा. कृपया हेल्पलाइन केंद्र क्रमांकावर संपर्क साधा. तुम्ही १८०० २५२५ ०००० या हेल्पलाइन क्रमांकावर संपर्क साधू शकता.
+                              <div class="btn_sec mt-2">
+                                 <button type="button" class="btn  green_btn call_btn">कॉल</button>
+                              </div>
+                            </div>
+                        </li> -->
+                    </ul>
+                    <div class="live_chat_sec" *ngIf="liveChat">
+                        <img src="/assets/images/chatbot/live_status.svg">
+                        <img class="Chatbot_Animation_img" src="/assets/images/chatbot/Chatbot_Animation.gif">
+                        <button type="button" class="btn  red_btn  stop_btn"> <img src="/assets/images/chatbot/close_white.svg">थांबा</button>
+
+                    </div>
+                </div>
+                <div class="modal-footer" *ngIf="!liveChat">
+
+                    <div class="msg_sec">
+                        <textarea placeholder="Type your message here...!" [(ngModel)]="userMessage"
+                            (keydown.enter)="sendUserMessage()"></textarea>
+                        <div class="action_sec">
+                            <div class="action_left">
+                                <div class="btn-group dropup">
+                                    <button type="button" class="btn-link" data-bs-toggle="dropdown"> <img
+                                            src="/assets/images/chatbot/upload.svg"></button>
+                                    <ul class="dropdown-menu">
+                                        <li *ngFor="let doc of documents"
+                                         (click)="openUploader(doc)">
+                                            {{ doc }}
+                                        </li>
+                                    </ul>
+                                    <input type="file"
+                                     hidden 
+                                     #fileInput 
+                                     (change)="onFileSelected($event)">
+                                </div>
+
+                            </div>
+                            <div class="action_right">
+                                <button type="button" class="btn-link"><img src="/assets/images/chatbot/voice.svg"></button>
+                                <button type="button" class="btn-link" (click)="sendUserMessage()"><img src="/assets/images/chatbot/send.svg"></button>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="pilot_para">Pilot By <a target="_blank" href="https://www.click2cloud.com/"> Click2Cloud</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Chat Bot Modal Start -->
+</main>

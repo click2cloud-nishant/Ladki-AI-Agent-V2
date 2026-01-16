@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    font-family: "Roboto", sans-serif;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #fff inset !important;
+  box-shadow: 0 0 0 1000px #fff inset !important;
+  -webkit-text-fill-color: #000 !important;
+  caret-color: #000;
+}
+.btn{
+    height: 50px;
+    padding:10px;
+    color: #FFF;
+    font-size: 18px;
+    font-weight: 600;
+}
+.blue_btn{
+  background:#0194DA;
+  border:1px solid #0194DA;
+  &:hover,&:active{
+      background:#026999 !important;
+      border:1px solid #026999 !important;
+       color: #FFF;
+  }
+}
+.yellow_btn{
+  background: #F68E1E;
+  border:1px solid #F68E1E;
+   &:hover,&:active{
+    background: #e77902 !important;
+    border: 1px solid #e77902;
+     color: #FFF !important;
+  }
+}
+.green_btn{
+background: #4CAF50;
+  border:1px solid #4CAF50;
+     &:hover,&:active{
+     background: #3fa142 !important;
+     border:1px solid #3fa142;
+     color: #FFF !important;
+  }
+}
+.red_btn{
+background: #FF0300;
+  border:1px solid #FF0300;
+     &:hover,&:active{
+     background: #d40805 !important;
+     border:1px solid #d40805;
+     color: #FFF !important;
+  }
+}

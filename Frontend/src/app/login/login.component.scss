@@ -1,0 +1,690 @@
+.login_sec {
+    background: url(../../assets/images/login/login_bg.jpg);
+    background-size: cover;
+    position: relative;
+
+    .gov_img,
+    .chatbot_icon {
+        position: absolute;
+        top: 50px;
+        right: 50px;
+    }
+
+    .chatbot_icon {
+        top: unset;
+        bottom: 50px;
+        cursor: pointer;
+    }
+    .gov_img_mobile{
+        display:none;
+    }
+}
+
+.login_container {
+    width: 80%;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 1fr;
+    margin: auto;
+    height: 100vh;
+    position: relative;
+}
+
+.circular_log {
+    img {
+        height: 85px;
+    }
+}
+
+.left_sec {
+    width: 100%;
+}
+
+.powered_by_sec {
+    position: absolute;
+    left: 0px;
+    bottom: 50px;
+
+    p {
+        margin: 10px 0px 0px;
+        font-size: 16px;
+        color: #001C3D;
+    }
+
+    a {
+        color: #001C3D;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    img {
+        height: 80px;
+    }
+}
+
+.right_sec {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    h1 {
+        color: #000;
+        font-size: 30px;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    .login_form {
+        width: 450px;
+
+        label {
+            color: #000;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .form-control {
+            border-radius: 4px;
+            border: 1px solid #C2C2C2;
+            background: #FFF;
+            height: 50px;
+
+            &:-internal-autofill-selected {
+                border: 1px solid #C2C2C2;
+                background: #FFF;
+            }
+        }
+
+        .mandatory {
+            color: #F00;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .icon_control_container {
+            position: relative;
+
+            img {
+                position: absolute;
+                width: 20px;
+                height: 18px;
+                top: 17px;
+                right: 13px;
+                cursor: pointer;
+            }
+
+            .form-control {
+                padding-right: 50px;
+            }
+        }
+    }
+
+    .otp_sec {
+        display: flex;
+        align-items: center;
+    }
+
+    .refresh_btn {
+        min-width: 50px;
+        margin-left: 10px;
+    }
+
+    .circular_log {
+        margin-bottom: 0.5rem;
+    }
+
+    .account_para {
+        margin-top: 20px;
+        text-align: center;
+
+        p {
+            color: #000;
+            font-size: 13px;
+            line-height: 25px;
+            margin: 0px;
+
+            a {
+                color: #0095FF;
+                text-decoration: underline;
+                font-weight: 700;
+                display: inline-block;
+                margin: 0px 5px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+/*Chat Bot UI css start*/
+.chatBot_modal{
+    display:none;
+}
+.chatBot_modal.show{
+    display:block;
+}
+.chatBot_modal_dialog {
+    position: fixed;
+    right: 51px;
+    bottom: 140px;
+    width: 500px;
+    margin: 0px;
+    .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.modal_header_left{
+    display:flex;
+    align-items:center;
+    img{
+        width:35px;
+    }
+    .modal-title{
+        color: #000;
+        font-size: 16px;
+        font-weight: 600;
+        margin-left:10px;
+    }
+}
+.modal_header_right{
+    display:flex;
+    align-items:center;
+    padding-right:15px;
+    img{
+        margin-left:15px;
+        cursor: pointer;
+    }
+    .btn-close{
+           background-image: none;
+            padding: 0px;
+            margin-left: 15px;
+            width: auto;
+            height: auto;   
+            opacity: 1;
+        img{
+             margin-left:0px;
+        }
+        &:focus{
+            box-shadow: none;
+        }
+    }
+}
+.modal-content {
+    border-radius: 10px;
+    border: 2px solid #CED4DA;
+}
+
+.communication_sec {
+    padding: 0;
+    margin: 0px;
+    list-style: none;
+    height: 475px;
+     overflow-y: hidden;
+    padding-right: 5px;
+    margin-right: -5px;
+    &:hover{
+        overflow-y: auto;
+    }
+            &::-webkit-scrollbar {
+  width: 4px;
+}
+    &::-webkit-scrollbar-thumb {
+  background-color: #d6d6d6;
+  border-radius: 20px;
+}
+
+&::-webkit-scrollbar-track {
+  background: transparent;
+}
+}
+.response{
+    display:flex;
+    align-items:flex-start;
+    margin-bottom:15px;
+    .chat{
+        padding:15px;
+        color: #000;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 24px; 
+    }
+    &.bot_response{
+         .chat{
+        border-radius: 0 10px 10px 10px;
+        background: #EEFEFF;
+        margin-left:15px;
+        position: relative;
+        padding-right: 40px;
+        ul{
+            padding: left 1.5rem;
+             list-style: disc;
+        }
+        .speakar_btn{
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            cursor: pointer;
+        }
+        .call_btn{
+               height: 30px;
+            font-size: 14px;
+            min-width: 98px;
+            padding: 5px;
+            font-weight: 400;
+        }
+        p{
+            margin:0px;
+            line-height:25px;
+        }
+         }
+         .bot_icon{
+            width:35px;
+         }
+
+    }
+    &.user_query{
+        justify-content:flex-end;
+         .chat{
+           border-radius: 6px 0 6px 6px;
+          background: linear-gradient(90deg, #FFAE00 0%, #F25500 100%);
+          margin-right:15px;
+          color: #FFF;
+         }
+                  .user_icon{
+             width:35px;
+         }
+    }
+}
+.modal-footer {
+    border-top:none;
+    padding-top:0px;
+}
+.default_questions{
+    margin:0px;
+    padding:0px;
+    list-style:none;
+    display: flex;
+    flex-direction:column;
+    align-items:flex-start;
+    width:100%;
+    padding-left:50px;
+    li{
+        color: #000;
+        font-size: 14px;
+        padding: 10px 15px;
+        border-radius: 45px;
+        border: 1px solid #9ADCE0;
+        min-width: 109px;
+        height: 35px;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        background: #eefeff;
+        font-weight:600;
+        img{
+            width:17px;
+            margin-right:7px;
+        }
+    }
+}
+.msg_sec{
+    border-radius: 6px;
+     background: #F2F2F2;
+         height: 85px;
+    margin: 10px 0px 5px;
+     width: 100%;
+     textarea {
+    resize: none;
+    width: 100%;
+    height: 40px;
+    border: none;
+    background: transparent;
+    padding:5px 10px;
+    &:focus-visible {
+    outline:none;
+   }
+}
+}
+.action_sec{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+        padding: 0px 5px;
+        .dropdown-menu{
+            min-width: 250px;
+            padding: 10px;
+            li{
+                margin-bottom:10px;
+                cursor:pointer;
+                &:last-child{
+                     margin-bottom:0px;
+                }
+            }
+        }
+    .btn-link{
+        border:none;
+    }
+}
+.pilot_para{
+    font-size:14px;
+    width:100%;
+    margin: 3px 0px 0px;
+    text-align:center;
+    a{
+        color:#000;
+        font-weight:700;
+        text-decoration:none;
+    }
+}
+.live_chat_sec{
+   height: 611px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+.Chatbot_Animation_img{
+    height: 350px;
+    margin: 25px 0px 25px;
+}
+.stop_btn{
+    height: 40px;
+    min-width: 100px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+        margin-right:7px;
+    }
+}
+&.maximize{
+    width: 100%;
+    max-width: 100%;
+    top: 0px;
+    bottom: unset;
+    right: 0px;
+    .modal-content{
+       border-radius:0px;
+    }
+    .communication_sec{
+        height: calc(100vh - 242px);
+    }
+   .live_chat_sec{
+    height: calc(100vh - 106px);
+}
+.Chatbot_Animation_img{
+    height: 515px;
+    margin: 90px 0px 70px;
+}
+}
+}
+/*Chat Bot UI css end*/
+@media only screen and (max-width:991px){
+    .login_container{
+    width: 100%;
+    grid-template-columns: 1fr;
+    padding:10px;
+}
+.right_sec{
+.login_form{
+    width: 100%;
+    .form-control {
+  height: 35px;
+  padding:5px 10px;
+}
+.icon_control_container img{
+    top: 8px;
+}
+.btn {
+    height: 35px;
+    padding: 5px;
+}
+}
+h1{
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+}
+.circular_log img {
+  height: 50px;
+}
+img.ladki_bahin_img {
+    height: 135px;
+}
+.login_sec {
+    .gov_img {
+        top: 10px;
+        right: 10px;
+    }
+}
+.otp_sec{
+    img{
+        height:40px;
+    }
+}
+.chatBot_modal_dialog{
+    right: 0px;
+    bottom: 0px;
+    width: 100%;
+    margin: 0px;
+}
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.line {
+  opacity: 0;
+  transform: translateY(6px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.default_bot_respnse,.default_questions li {
+  opacity: 0;
+  transform: translateY(6px);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Staggered delay */
+.default_bot_respnse{
+  animation-delay: 0.3s;
+}
+
+.default_questions li:nth-child(1) {
+  animation-delay: 0.6s;
+}
+
+.default_questions li:nth-child(2) {
+  animation-delay: 0.9s;
+}
+
+.default_questions li:nth-child(3) {
+  animation-delay: 1.2s;
+}
+.default_questions li:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media only screen and (max-width:991px){
+    .chatBot_modal_dialog{
+     .modal-content{
+    border-radius: 0px;
+}
+.communication_sec{
+    height: calc(100vh - 241px);
+    }
+    .live_chat_sec{
+    height: calc(100vh - 105px);
+}
+.expand_action{
+    display:none;
+}
+.Chatbot_Animation_img{
+    height: 295px;
+}
+
+}
+.left_sec {
+   text-align:center;
+}
+.gov_img{
+    display:none;
+}
+.gov_img_mobile{
+    display:inline-block !important;
+}
+.right_sec{
+.refresh_btn {
+    display: flex;
+        align-items: center;
+        justify-content: center;
+        img{
+    height:18px;
+}
+}
+.account_para{
+    margin-top:10px;
+    p{
+        font-size: 12px;
+    line-height: 20px;
+    }
+}
+} 
+.login_sec{
+      height: 100vh;
+    overflow-y: auto;
+    padding-bottom:100px;
+}
+.login_container{
+    height: auto;
+}
+.login_sec .chatbot_icon{
+    top: unset;
+    bottom: 25px;
+    cursor: pointer;
+    right: 10px;
+    position: fixed;
+}
+.powered_by_sec{
+    position: fixed;
+        bottom: 10px;
+        left: 10px;
+        text-align:center;
+        width: 100%;
+        p{
+            font-size:12px;
+        }
+    img{
+        height:45px;
+    }
+}
+}
+@media only screen and (max-width:1600px) and (min-width:992px){
+        .powered_by_sec {
+        bottom: 15px;
+        img{
+            height: 70px;
+        }
+    }
+
+    .login_sec {
+        .gov_img,.chatbot_icon {
+            top: 15px;
+            right: 15px;
+        }
+
+        .chatbot_icon {
+            top:unset;
+            bottom: 15px;
+            height: 70px;
+        }
+    }
+}
+@media only screen and (max-width:1439px) and (min-width:992px) {
+    .ladki_bahin_img {
+        height: 300px;
+    }
+
+    .circular_log img {
+        height: 70px;
+    }
+    /*chatbot start*/
+    .chatBot_modal_dialog{
+    right: 30px;
+    bottom: 85px;
+    .modal-header,.modal-body{
+    padding: 10px;
+}
+ .communication_sec{
+    height: 325px;
+}
+.live_chat_sec {
+    height: 461px;
+}
+.Chatbot_Animation_img{
+    height: 285px;
+}
+&.maximize{
+.communication_sec{
+    height: calc(100vh - 218px);
+}
+ .live_chat_sec{
+    height: calc(100vh - 82px);
+}
+.Chatbot_Animation_img{
+    height: 365px;
+    margin: 40px 0px 25px;
+}
+}
+}
+ /*chatbot end*/
+}
+@media only screen and (max-width:1919px) and (min-width:1440px) {
+    .ladki_bahin_img {
+        height: 435px;
+    }
+    .chatBot_modal_dialog {
+    right: 20px;
+    bottom: 90px;
+    &.maximize{
+            .Chatbot_Animation_img{
+            height: 420px;
+            margin: 40px 0px 30px;
+        }
+    }
+    .communication_sec{
+        height: 410px;
+    }
+     .live_chat_sec{
+    height: 546px;
+    }
+}
+
+}
+@media only screen  and (min-width:1920px) {
+    .ladki_bahin_img {
+        height: 475px;
+    }
+
+}
