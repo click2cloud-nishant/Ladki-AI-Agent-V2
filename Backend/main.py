@@ -55,8 +55,7 @@ app.add_middleware(
 # Root route to serve frontend
 @app.get("/")
 async def root():
-    """Serve the main application"""
-    return FileResponse("frontend/index.html")
+    return {"status": "ok", "message": "Ladki Bahin Yojana API is running"}
 
 
 SESSION_MODE = {}
