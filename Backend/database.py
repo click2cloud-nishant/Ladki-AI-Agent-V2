@@ -217,6 +217,20 @@ class DatabaseManager:
         # Fallback: timestamp-based
         import time
         return int(datetime.now().strftime("%Y%m%d") + str(int(time.time() * 1000))[-6:])
+    
+    def get_aadhaar_details(self, aadhaar_no: str) -> Optional[Dict]:
+        try:
+            cursor = self._get_cursor()
+            cursor.execute("""
+                SELECT TOP 1 *
+                FROM AadhaarCardDetails
+                WHERE AadhaarNo = %s
+            """, (aadhaar_no,))
+            return cursor.fetchone()
+        except Exception as e:
+            logger.error(f"Error fetching Aadhaar details: {e}")
+            return None
+
 
     def check_beneficiary_exists(self, beneficiary_id: int) -> bool:
         """Check if BeneficiaryId exists"""
@@ -406,6 +420,54 @@ class DatabaseManager:
             logger.error(f"Error retrieving application: {e}")
             return None
 
+    def save_beneficiary_from_aadhaar(self, aadhaar: Dict[str, Any]) -> Optional[int]:
+        try:
+            cursor = self._get_cursor()
+
+            beneficiary_id = self.generate_application_id()
+            now = datetime.now()
+
+            cursor.execute("""
+                INSERT INTO BeneficiaryApplication (
+                    BeneficiaryId,
+                    AadhaarNumber,
+                    FullName,
+                    DateOfBirth,
+                    Gender,
+                    Address,
+                    District,
+                    SchemeCode,
+                    ApplicationDate,
+                    ApplicationStatus,
+                    CreatedOn,
+                    UpdatedOn
+                ) VALUES (
+                    %s,%s,%s,%s,%s,%s,%s,
+                    'LADLI_BEHNA',
+                    %s,
+                    'UNDER_REVIEW',
+                    %s,%s
+                )
+            """, (
+                beneficiary_id,
+                aadhaar["aadhaar_number"],
+                aadhaar["full_name"],
+                aadhaar["date_of_birth"],
+                aadhaar["gender"],
+                aadhaar["address"],
+                aadhaar["district"],
+                now,
+                now,
+                now
+            ))
+
+            self.connection.commit()
+            return beneficiary_id
+
+        except Exception as e:
+            logger.error(f"❌ Error saving Aadhaar beneficiary: {e}")
+            self.connection.rollback()
+            return None
 
 # ============================================
 # Singleton Instance
