@@ -49,7 +49,7 @@ app.add_middleware(
 )
 
 # Mount static files
-app.mount("/static", StaticFiles(directory="frontend/static"), name="static")
+# app.mount("/static", StaticFiles(directory="frontend/static"), name="static")
 
 
 # Root route to serve frontend
@@ -592,8 +592,6 @@ async def get_speech_token():
             detail=f"Error connecting to speech service: {str(e)}"
         )
 
-
-from api.text_to_speech import text_to_speech
 from fastapi.responses import Response
 from api.text_to_speech import text_to_speech_gemini
 # ... existing code ...

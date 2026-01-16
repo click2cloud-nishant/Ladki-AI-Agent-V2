@@ -54,7 +54,7 @@ app.add_middleware(
 )
 
 # Mount static files
-app.mount("/static", StaticFiles(directory="frontend/static"), name="static")
+# app.mount("/static", StaticFiles(directory="frontend/static"), name="static")
 
 # Initialize Azure OpenAI client
 client = AzureOpenAI(
